@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_04_121415) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_04_122525) do
+  create_table "histories", force: :cascade do |t|
+    t.integer "release_train_id", null: false
+    t.integer "version"
+    t.string "run_result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["release_train_id"], name: "index_histories_on_release_train_id"
+  end
+
   create_table "release_trains", force: :cascade do |t|
     t.string "engineering_manager"
     t.string "backend"
@@ -36,4 +45,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_121415) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "histories", "release_trains"
 end
