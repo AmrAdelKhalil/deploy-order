@@ -1,0 +1,2 @@
+class SystemService < ApplicationRecord
+end
