@@ -10,11 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_04_113348) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_04_121415) do
   create_table "release_trains", force: :cascade do |t|
     t.string "engineering_manager"
     t.string "backend"
     t.date "rt_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "release_trains_system_services", id: false, force: :cascade do |t|
+    t.integer "release_train_id"
+    t.integer "system_service_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["release_train_id"], name: "index_release_trains_system_services_on_release_train_id"
+    t.index ["system_service_id"], name: "index_release_trains_system_services_on_system_service_id"
+  end
+
+  create_table "system_services", force: :cascade do |t|
+    t.string "name"
+    t.string "tribe"
+    t.string "squad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
