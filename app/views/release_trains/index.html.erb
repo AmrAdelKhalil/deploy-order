@@ -1,14 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-12">
 
-<h1>Release trains</h1>
+      <h1 class="text-center">Release Trains</h1>
 
-<div id="release_trains">
-  <% @release_trains.each do |release_train| %>
-    <%= render release_train %>
-    <p>
-      <%= link_to "Show this release train", release_train %>
-    </p>
-  <% end %>
+      <%= link_to "Add release train", new_release_train_path, :class => "btn btn-primary float-right btn-lg", :style=>"margin-bottom: 15px" %>
+      <p style="color: green"><%= notice %></p>
+
+      <table class="table  table-striped" id="release_trains">
+        <thead>
+        <tr>
+          <th scope="col">#ID</th>
+          <th scope="col">Date</th>
+          <th scope="col">EM</th>
+          <th scope="col">BE</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @release_trains.each do |release_train| %>
+          <%= render release_train %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New release train", new_release_train_path %>

@@ -1,17 +1,7 @@
-<div id="<%= dom_id release_train %>">
-  <p>
-    <strong>Engineering manager:</strong>
-    <%= release_train.engineering_manager %>
-  </p>
-
-  <p>
-    <strong>Backend:</strong>
-    <%= release_train.backend %>
-  </p>
-
-  <p>
-    <strong>Rt date:</strong>
-    <%= release_train.rt_date %>
-  </p>
-
-</div>
+<tr>
+  <td scope="row"><%= release_train.id %></td>
+  <td><%= release_train.rt_date %></td>
+  <td><%= release_train.engineering_manager %></td>
+  <td><%= release_train.backend %></td>
+  <td><%= link_to "view", release_train %></td>
+</tr>
