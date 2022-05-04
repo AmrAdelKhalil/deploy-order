@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @release_train %>
+
+<div>
+  <%= link_to "Edit this release train", edit_release_train_path(@release_train) %> |
+  <%= link_to "Back to release trains", release_trains_path %>
+
+  <%= button_to "Destroy this release train", @release_train, method: :delete %>
+</div>

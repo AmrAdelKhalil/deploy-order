@@ -1,0 +1,2 @@
+class ReleaseTrain < ApplicationRecord
+end

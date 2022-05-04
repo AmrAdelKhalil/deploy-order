@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Release trains</h1>
+
+<div id="release_trains">
+  <% @release_trains.each do |release_train| %>
+    <%= render release_train %>
+    <p>
+      <%= link_to "Show this release train", release_train %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New release train", new_release_train_path %>
