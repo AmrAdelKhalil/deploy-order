@@ -15,15 +15,18 @@ class ReleaseTrainsController < ApplicationController
   # GET /release_trains/new
   def new
     @release_train = ReleaseTrain.new
+    @release_train_services = []
   end
 
   # GET /release_trains/1/edit
   def edit
+    @all_services = SystemService.pluck(:id, :name)
+    @release_train_services = @release_train.system_services
   end
 
   # POST /release_trains or /release_trains.json
   def create
-    @release_train = ReleaseTrain.new(release_train_params)
+    @release_train = ReleaseTrain.new(release_train_params.except(:services))
 
     respond_to do |format|
       if @release_train.save
@@ -39,7 +42,7 @@ class ReleaseTrainsController < ApplicationController
   # PATCH/PUT /release_trains/1 or /release_trains/1.json
   def update
     respond_to do |format|
-      if @release_train.update(release_train_params)
+      if @release_train.update(release_train_params.except(:services))
         format.html { redirect_to release_train_url(@release_train), notice: "Release train was successfully updated." }
         format.json { render :show, status: :ok, location: @release_train }
       else
@@ -67,6 +70,6 @@ class ReleaseTrainsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def release_train_params
-      params.require(:release_train).permit(:engineering_manager, :backend, :rt_date)
+      params.require(:release_train).permit(:engineering_manager, :backend, :rt_date, :services)
     end
 end
