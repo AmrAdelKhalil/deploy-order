@@ -8,6 +8,8 @@ class ReleaseTrainsController < ApplicationController
 
   # GET /release_trains/1 or /release_trains/1.json
   def show
+    @all_services = SystemService.pluck(:id, :name)
+    @release_train_services = @release_train.system_services
   end
 
   # GET /release_trains/new
