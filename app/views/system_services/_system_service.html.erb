@@ -1,17 +1,8 @@
-<div id="<%= dom_id system_service %>">
-  <p>
-    <strong>Name:</strong>
-    <%= system_service.name %>
-  </p>
+<tr>
+  <td scope="row"><%= system_service.id %></td>
+  <td><%= system_service.name %></td>
+  <td><%= system_service.tribe %></td>
+  <td><%= system_service.squad %></td>
+  <td><%= link_to "view", system_service %></td>
+</tr>
 
-  <p>
-    <strong>Tribe:</strong>
-    <%= system_service.tribe %>
-  </p>
-
-  <p>
-    <strong>Squad:</strong>
-    <%= system_service.squad %>
-  </p>
-
-</div>

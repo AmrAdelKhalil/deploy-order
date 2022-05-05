@@ -1,14 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-12">
 
-<h1>System services</h1>
+      <h1 class="text-center">Services</h1>
 
-<div id="system_services">
-  <% @system_services.each do |system_service| %>
-    <%= render system_service %>
-    <p>
-      <%= link_to "Show this system service", system_service %>
-    </p>
-  <% end %>
+      <%= link_to "New system service", new_system_service_path, :class => "btn btn-primary float-right btn-lg", :style=>"margin-bottom: 15px" %>
+      <p style="color: green"><%= notice %></p>
+
+      <table class="table  table-striped" id="release_trains">
+        <thead>
+        <tr>
+          <th scope="col">#ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Tribe</th>
+          <th scope="col">Squad</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @system_services.each do |system_service| %>
+          <%= render system_service %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New system service", new_system_service_path %>
