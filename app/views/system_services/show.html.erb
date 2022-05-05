@@ -1,10 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<div class="container" style="margin-top: 100px">
+  <div class="row align-items-center">
+    <div class="col-md-12">
+      <div class="container" style="margin-top: 100px">
+        <div class="row align-items-center">
+          <div class="col-md-12 d-flex justify-content-end">
+            <p style="color: green"><%= notice %></p>
+            <%= link_to "Edit this system service", edit_system_service_path(@system_service), :class=>"btn btn-primary btn-md" %>
+            <%= link_to "Back to system services", system_services_path, :class=>"btn btn-primary btn-md", style: "margin-left: 5px" %>
+            <%= button_to "Destroy this system service", @system_service, method: :delete, :class=>"btn btn-danger btn-md float-right", style: "margin-left: 5px" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
 
-<%= render @system_service %>
-
-<div>
-  <%= link_to "Edit this system service", edit_system_service_path(@system_service) %> |
-  <%= link_to "Back to system services", system_services_path %>
-
-  <%= button_to "Destroy this system service", @system_service, method: :delete %>
+      <div class="card-body">
+        <%= render partial: "system_service_show", :locals=> {:system_service=> @system_service} %>
+      </div>
+    </div>
+  </div>
 </div>
